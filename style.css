@@ -1,3 +1,28 @@
 #root {
   color: red;
 }
+.episode {
+  background-color: rgb(230, 132, 87);
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  color: black;
+  border-radius: 5px;
+  width: 30%;
+  min-width: 400px;
+  text-justify: inter-word;
+}
+.episodeContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+p {
+  padding: 10px;
+  font-size: 20px;
+  word-wrap: break-word;
+}
+.image {
+  border: 5px solid rgb(19, 18, 18);
+  border-radius: 8px;
+  width: 300px;
+}
