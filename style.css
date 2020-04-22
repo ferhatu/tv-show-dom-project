@@ -2,7 +2,7 @@
   color: red;
 }
 .episode {
-  background-color: rgb(230, 132, 87);
+  background-color: rgb(218, 163, 138);
   margin: 10px;
   padding: 10px;
   text-align: center;
@@ -10,16 +10,21 @@
   border-radius: 5px;
   width: 30%;
   min-width: 400px;
-  text-justify: inter-word;
+  /* text-justify: inter-word; */
 }
 .episodeContainer {
   display: flex;
   flex-wrap: wrap;
 }
 p {
-  padding: 10px;
-  font-size: 20px;
-  word-wrap: break-word;
+  text-align: justify;
+  width: 350px;
+  font-family: sans-serif;
+  margin: 0 auto;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: 500;
+  /* word-wrap: break-word; */
 }
 .image {
   border: 5px solid rgb(19, 18, 18);
