@@ -14,21 +14,18 @@ function makePageForEpisodes(episodeList) {
   let episodes = document.createElement("div");
   episodes.className = "episodeContainer";
 
-  episodes.innerHTML = newEpisodes;
+  episodes.innerHTML = createNewList(episodeList);
   rootElem.appendChild(episodes);
-  // console.log(episodes);
-  // console.log(episodeList);
+
   let inputField = document.querySelector("#site-search");
-  console.log(inputField.value);
 
   inputField.addEventListener("keyup", function () {
-    let result = episodeList.filter(
+    let filteredEpisodes = episodeList.filter(
       (key) =>
         key.summary.includes(inputField.value) ||
         key.name.includes(inputField.value)
     );
-    console.log(result);
-    return result;
+    episodes.innerHTML = createNewList(filteredEpisodes);
   });
 }
 function createNewList(episodeList) {
