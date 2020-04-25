@@ -8,7 +8,9 @@ function setup() {
 function makePageForEpisodes(episodeList) {
   const rootElem = document.getElementById("root");
   rootElem.innerHTML = `Search ${episodeList.length} episode(s)
-                        <input type="search" id="site-search">`; //Create search field
+                        <input type="text" list="episode-list">
+                        <datalist id="episode-list"></datalist>
+                        <input type="search" id="site-search" placeholder="Search item">`; //Create search field
 
   //Create div for whole list of episodes
   let episodes = document.createElement("div");
@@ -18,12 +20,15 @@ function makePageForEpisodes(episodeList) {
   rootElem.appendChild(episodes);
 
   let inputField = document.querySelector("#site-search");
+  let dropDownMenu = document.querySelector("#episode-list");
+
+  dropDownMenu.innerHTML = createDropDownMenu(episodeList);
 
   inputField.addEventListener("keyup", function () {
     let filteredEpisodes = episodeList.filter(
       (key) =>
-        key.summary.includes(inputField.value) ||
-        key.name.includes(inputField.value)
+        key.summary.toLowerCase().includes(inputField.value) ||
+        key.name.toLowerCase().includes(inputField.value)
     );
     episodes.innerHTML = createNewList(filteredEpisodes);
   });
@@ -41,8 +46,18 @@ function createNewList(episodeList) {
     })
     .join("");
 }
-window.onload = setup;
+function createDropDownMenu(episodeList) {
+  return episodeList
+    .map(function (item) {
+      return `<option value ="
+  S${item.season
+    .toString()
+    .padStart(
+      2,
+      "0"
+    )}E${item.number.toString().padStart(2, "0")} ${item.name}">`;
+    })
+    .join("");
+}
 
-// let inputField = document.createElement("input");
-// inputField.setAttribute("type", "search");
-// rootElem.appendChild(inputField);
+window.onload = setup;
