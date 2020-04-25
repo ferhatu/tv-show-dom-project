@@ -7,9 +7,9 @@ function setup() {
 
 function makePageForEpisodes(episodeList) {
   const rootElem = document.getElementById("root");
-  rootElem.innerHTML = `Search ${episodeList.length} episode(s)
-                        <input type="text" list="episode-list">
-                        <datalist id="episode-list"></datalist>
+  rootElem.innerHTML = `Search ${episodeList.length} episodes
+                    
+                        <select id="episode-list"> </select>
                         <input type="search" id="site-search" placeholder="Search item">`; //Create search field
 
   //Create div for whole list of episodes
@@ -22,13 +22,22 @@ function makePageForEpisodes(episodeList) {
   let inputField = document.querySelector("#site-search");
   let dropDownMenu = document.querySelector("#episode-list");
 
+  dropDownMenu.addEventListener("change", function (event) {
+    const episodeId = event.target.value;
+
+    let episodesFilteredById = episodeList.filter(
+      (episode) => episode.id == episodeId
+    );
+    episodes.innerHTML = createNewList(episodesFilteredById);
+  });
+
   dropDownMenu.innerHTML = createDropDownMenu(episodeList);
 
   inputField.addEventListener("keyup", function () {
     let filteredEpisodes = episodeList.filter(
-      (key) =>
-        key.summary.toLowerCase().includes(inputField.value) ||
-        key.name.toLowerCase().includes(inputField.value)
+      (episode) =>
+        episode.summary.toLowerCase().includes(inputField.value) ||
+        episode.name.toLowerCase().includes(inputField.value)
     );
     episodes.innerHTML = createNewList(filteredEpisodes);
   });
@@ -49,13 +58,13 @@ function createNewList(episodeList) {
 function createDropDownMenu(episodeList) {
   return episodeList
     .map(function (item) {
-      return `<option value ="
+      return `<option value =${item.id}>
   S${item.season
     .toString()
     .padStart(
       2,
       "0"
-    )}E${item.number.toString().padStart(2, "0")} ${item.name}">`;
+    )}E${item.number.toString().padStart(2, "0")} ${item.name}</option>`;
     })
     .join("");
 }

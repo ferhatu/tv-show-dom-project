@@ -31,3 +31,7 @@ p {
   border-radius: 8px;
   width: 300px;
 }
+#episode-list {
+  width: 600px;
+  color: black;
+}
