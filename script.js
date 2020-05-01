@@ -1,14 +1,21 @@
 //You can edit ALL of the code here
+const rootElem = document.getElementById("root");
+rootElem.innerHTML = `
+  <button id="homebtn">Home</button>
+                        <select id="show-list"> </select>
+                        <select id="episode-list"> </select>
+                        <input type="search" id="site-search" placeholder="Search item">`; //Create search field
 function setup() {
-  // const shows = getAllShows();
-  // let showList = document.querySelector("#show-list");
-  // // showList.addEventListener("change", function (event) {
-  // //   const showId = event.target.value;
+  const shows = getAllShows();
+  let showList = document.querySelector("#show-list");
+  showList.innerHTML = createSerialSelectorMenu(shows);
+
+  // showList.addEventListener("change", function (event) {
+  //   const showId = event.target.value;
 
   // //   let showsFilteredById = shows.filter((show) => show.id == showId);
   // //   episodes.innerHTML = createNewList(showsFilteredById);
   // // });
-  // showList.innerHTML = createSerialSelectorMenu(shows);
 
   //fetching data from API
   fetch("https://api.tvmaze.com/shows/82/episodes")
@@ -21,12 +28,11 @@ function setup() {
 }
 
 function makePageForEpisodes(episodeList) {
-  const rootElem = document.getElementById("root");
-  rootElem.innerHTML = `Search ${episodeList.length} episodes
-  <button id="homebtn">Home</button>
-                        <select id="show-list"> </select>
-                        <select id="episode-list"> </select>
-                        <input type="search" id="site-search" placeholder="Search item">`; //Create search field
+  // rootElem.innerHTML = `Search ${episodeList.length} episodes
+  // <button id="homebtn">Home</button>
+  //                       <select id="show-list"> </select>
+  //                       <select id="episode-list"> </select>
+  //                       <input type="search" id="site-search" placeholder="Search item">`; //Create search field
 
   //Create div for whole list of episodes
   let episodes = document.createElement("div");
