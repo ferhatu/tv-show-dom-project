@@ -4,47 +4,46 @@ rootElem.innerHTML = `
   <button id="homebtn">Home</button>
                         <select id="show-list"> </select>
                         <select id="episode-list"> </select>
-                        <input type="search" id="site-search" placeholder="Search item">`; //Create search field
+                        <input type="search" id="site-search" placeholder="Search item">
+                        <div id="episodes" class="episodeContainer"></div>`; //Create search field
 function setup() {
-  const shows = getAllShows();
-  let showList = document.querySelector("#show-list");
-  showList.innerHTML = createSerialSelectorMenu(shows);
-
-  // showList.addEventListener("change", function (event) {
-  //   const showId = event.target.value;
-
-  // //   let showsFilteredById = shows.filter((show) => show.id == showId);
-  // //   episodes.innerHTML = createNewList(showsFilteredById);
-  // // });
-
-  //fetching data from API
-  fetch("https://api.tvmaze.com/shows/82/episodes")
+  fetch(`https://api.tvmaze.com/shows/82/episodes`)
     .then((response) => {
       return response.json();
     })
     .then((data) => {
       makePageForEpisodes(data);
     });
+  const shows = getAllShows();
+  let showList = document.querySelector("#show-list");
+  showList.innerHTML = createSerialSelectorMenu(shows);
+
+  showList.addEventListener("change", function (event) {
+    const showId = event.target.value;
+    console.log(showId);
+
+    fetch(`https://api.tvmaze.com/shows/${showId}/episodes`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        makePageForEpisodes(data);
+      });
+  });
+
+  //fetching data from API
 }
 
 function makePageForEpisodes(episodeList) {
-  // rootElem.innerHTML = `Search ${episodeList.length} episodes
-  // <button id="homebtn">Home</button>
-  //                       <select id="show-list"> </select>
-  //                       <select id="episode-list"> </select>
-  //                       <input type="search" id="site-search" placeholder="Search item">`; //Create search field
-
   //Create div for whole list of episodes
-  let episodes = document.createElement("div");
-  episodes.className = "episodeContainer";
+  let episodes = document.getElementById("episodes");
+  // episodes.className = "episodeContainer";
 
   episodes.innerHTML = createNewList(episodeList);
-  rootElem.appendChild(episodes);
+  // rootElem.appendChild(episodes);
 
   let inputField = document.querySelector("#site-search");
   let dropDownMenu = document.querySelector("#episode-list");
-
-  //Show List
 
   //Episode selector
   dropDownMenu.addEventListener("change", function (event) {
@@ -79,7 +78,9 @@ function createNewList(episodeList) {
             <h1 class="heading">${
               item.name
             } - S${item.season.toString().padStart(2, "0")}E${item.number.toString().padStart(2, "0")}</h1>
-            <img class="image" src=${item.image.medium} alt= ${item.name}
+            <img class="image" src=${
+              item.image ? item.image.medium : null
+            } alt= ${item.name}
             <p>${item.summary}</p>
             </div>`;
     })
