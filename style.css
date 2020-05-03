@@ -1,3 +1,6 @@
+body {
+  background-color: rgb(95, 7, 7);
+}
 #root {
   color: rgb(29, 13, 170);
 }
@@ -14,6 +17,7 @@
 }
 .episodeContainer {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
 }
@@ -33,6 +37,32 @@ p {
   width: 300px;
 }
 #episode-list {
+  margin-left: 10px;
+  width: 250px;
+  color: black;
+}
+#header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0;
+  color: black;
+}
+#display {
+  width: 200px;
+  margin-left: 10px;
+  background-color: blanchedalmond;
+}
+#homebtn {
+  margin-left: 10px;
+}
+#show-list {
+  margin-left: 10px;
+  width: 250px;
+  color: black;
+}
+#site-search {
+  margin-left: 10px;
   width: 250px;
   color: black;
 }

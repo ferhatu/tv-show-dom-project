@@ -1,11 +1,14 @@
 //You can edit ALL of the code here
 const rootElem = document.getElementById("root");
 rootElem.innerHTML = `
-  <button id="homebtn">Home</button>
-                        <select id="show-list"> </select>
-                        <select id="episode-list"> </select>
-                        <input type="search" id="site-search" placeholder="Search item">
-                        <div id="episodes" class="episodeContainer"></div>`; //Create search field
+  <div id="header">
+    <button id="homebtn">Home</button>
+    <select id="show-list"> </select>
+    <select id="episode-list"> </select>
+    <input type="search" id="site-search" placeholder="Search item">
+    <p id="display"></p>
+  </div>
+  <div id="episodes" class="episodeContainer"></div>`; //Create search field
 function setup() {
   fetch(`https://api.tvmaze.com/shows/82/episodes`)
     .then((response) => {
@@ -14,7 +17,18 @@ function setup() {
     .then((data) => {
       makePageForEpisodes(data);
     });
+
   const shows = getAllShows();
+  shows.sort(function (a, b) {
+    if (a.name < b.name) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return 1;
+    }
+    // names must be equal
+    return 0;
+  });
   let showList = document.querySelector("#show-list");
   showList.innerHTML = createSerialSelectorMenu(shows);
 
@@ -41,9 +55,13 @@ function makePageForEpisodes(episodeList) {
 
   episodes.innerHTML = createNewList(episodeList);
   // rootElem.appendChild(episodes);
+  // let parag = document.getElementById("#display");
+  // parag.textContent = episodes.length;
 
   let inputField = document.querySelector("#site-search");
   let dropDownMenu = document.querySelector("#episode-list");
+  let counter = document.querySelector("#display");
+  counter.innerHTML = `${episodeList.length} episodes`;
 
   //Episode selector
   dropDownMenu.addEventListener("change", function (event) {
@@ -54,6 +72,7 @@ function makePageForEpisodes(episodeList) {
     );
     episodes.innerHTML = createNewList(episodesFilteredById);
   });
+
   dropDownMenu.innerHTML = createDropDownMenu(episodeList);
 
   //Search Field
