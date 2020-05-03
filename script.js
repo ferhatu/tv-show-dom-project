@@ -60,8 +60,10 @@ function makePageForEpisodes(episodeList) {
   inputField.addEventListener("keyup", function () {
     let filteredEpisodes = episodeList.filter(
       (episode) =>
-        episode.summary.toLowerCase().includes(inputField.value) ||
-        episode.name.toLowerCase().includes(inputField.value)
+        episode.summary
+          .toLowerCase()
+          .includes(inputField.value.toLowerCase()) ||
+        episode.name.toLowerCase().includes(inputField.value.toLowerCase())
     );
     episodes.innerHTML = createNewList(filteredEpisodes);
   });
