@@ -10,7 +10,7 @@ rootElem.innerHTML = `
   </div>
   <div id="episodes" class="episodeContainer"></div>`; //Create search field
 function setup() {
-  fetch(`https://api.tvmaze.com/shows/82/episodes`)
+  fetch(`https://api.tvmaze.com/shows/1/episodes`)
     .then((response) => {
       return response.json();
     })

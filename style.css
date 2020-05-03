@@ -1,15 +1,15 @@
 body {
-  background-color: rgb(95, 7, 7);
+  background-color: rgb(15, 1, 1);
 }
 #root {
   color: rgb(29, 13, 170);
 }
 .episode {
-  background-color: rgb(218, 163, 138);
+  background-color: rgb(41, 39, 38);
   margin: 10px;
   padding: 10px;
   text-align: center;
-  color: black;
+  color: white;
   border-radius: 5px;
   width: 30%;
   min-width: 400px;
@@ -44,13 +44,13 @@ p {
 #header {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  text-align: center;
   margin: 0;
   color: black;
 }
 #display {
-  width: 200px;
   margin-left: 10px;
+  width: 200px;
   background-color: blanchedalmond;
 }
 #homebtn {
@@ -65,4 +65,7 @@ p {
   margin-left: 10px;
   width: 250px;
   color: black;
+}
+.heading {
+  background-color: rgb(134, 41, 41);
 }
