@@ -8,6 +8,7 @@ body {
   text-align: center;
   color: white;
   border-radius: 5px;
+  border: 2px solid red;
   width: 30%;
   min-width: 400px;
   /* text-justify: inter-word; */
@@ -62,8 +63,8 @@ p {
   font-weight: 600;
   font-size: 15px;
   margin-left: 10px;
-  color: yellow;
-  background-color: rgb(134, 41, 41);
+  color: rgb(245, 245, 158);
+  background-color: rgb(61, 39, 139);
 }
 #show-list {
   font-family: "Lucida Sans Unicode", sans-serif;
