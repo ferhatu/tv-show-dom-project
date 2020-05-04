@@ -37,6 +37,9 @@ p {
   width: 300px;
 }
 #episode-list {
+  font-family: "Ariel";
+  font-weight: 600;
+  font-size: 18px;
   margin-left: 10px;
   width: 250px;
   color: black;
@@ -44,26 +47,39 @@ p {
 #header {
   display: flex;
   flex-direction: row;
-  text-align: center;
+  justify-content: center;
   margin: 0;
   color: black;
 }
 #display {
+  font-family: "Lucida Sans Unicode", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
   margin-left: 10px;
+  margin-right: 0px;
   width: 200px;
-  background-color: blanchedalmond;
+  background-color: white;
 }
 #homebtn {
+  font-family: "Lucida Sans Unicode", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
   margin-left: 10px;
 }
 #show-list {
+  font-family: "Lucida Sans Unicode", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
   margin-left: 10px;
   width: 250px;
   color: black;
 }
 #site-search {
+  font-family: "Lucida Sans Unicode", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
   margin-left: 10px;
-  width: 250px;
+  width: 200px;
   color: black;
 }
 .heading {
