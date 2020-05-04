@@ -1,11 +1,8 @@
 body {
-  background-color: rgb(15, 1, 1);
-}
-#root {
-  color: rgb(29, 13, 170);
+  background-color: rgb(0, 0, 0);
 }
 .episode {
-  background-color: rgb(41, 39, 38);
+  background-color: rgb(22, 21, 21);
   margin: 10px;
   padding: 10px;
   text-align: center;
@@ -65,6 +62,8 @@ p {
   font-weight: 600;
   font-size: 15px;
   margin-left: 10px;
+  color: yellow;
+  background-color: rgb(134, 41, 41);
 }
 #show-list {
   font-family: "Lucida Sans Unicode", sans-serif;
