@@ -26,7 +26,7 @@ function setup() {
     if (a.name > b.name) {
       return 1;
     }
-    // names must be equal
+
     return 0;
   });
   let showList = document.querySelector("#show-list");
@@ -49,12 +49,9 @@ function setup() {
 }
 
 function makePageForEpisodes(episodeList) {
-  //Create div for whole list of episodes
   let episodes = document.getElementById("episodes");
-  // episodes.className = "episodeContainer";
 
   episodes.innerHTML = createNewList(episodeList);
-  // rootElem.appendChild(episodes);
   // let parag = document.getElementById("#display");
   // parag.textContent = episodes.length;
 
