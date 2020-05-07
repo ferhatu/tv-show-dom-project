@@ -60,8 +60,6 @@ function makePageForEpisodes(episodeList) {
 
   let inputField = document.querySelector("#site-search");
   let dropDownMenu = document.querySelector("#episode-list");
-  let counter = document.querySelector("#display");
-  counter.innerHTML = `${episodeList.length} episodes`;
 
   //Episode selector
   dropDownMenu.addEventListener("change", function (event) {
@@ -85,6 +83,8 @@ function makePageForEpisodes(episodeList) {
         episode.name.toLowerCase().includes(inputField.value.toLowerCase())
     );
     episodes.innerHTML = createNewList(filteredEpisodes);
+    let counter = document.querySelector("#display");
+    counter.innerHTML = `${filteredEpisodes.length} episodes`;
   });
 
   homebtn.addEventListener("click", function () {
@@ -93,6 +93,8 @@ function makePageForEpisodes(episodeList) {
 }
 
 function createNewList(episodeList) {
+  let counter = document.querySelector("#display");
+  counter.innerHTML = `${episodeList.length} episodes`;
   return episodeList
     .map(function (item) {
       return `<div class="episode">
