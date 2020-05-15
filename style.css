@@ -1,3 +1,91 @@
-#root {
-  color: red;
+body {
+  background-color: rgb(0, 0, 0);
+}
+.episode {
+  background-color: rgb(0, 0, 0);
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  border-radius: 5px;
+  border: 2px solid red;
+  width: 30%;
+  min-width: 400px;
+  /* text-justify: inter-word; */
+}
+.episodeContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+p {
+  text-align: justify;
+  width: 350px;
+  font-family: sans-serif;
+  margin: 0 auto;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: 500;
+  /* word-wrap: break-word; */
+}
+.image {
+  border: 5px solid rgb(19, 18, 18);
+  border-radius: 8px;
+  width: 300px;
+}
+#episode-list {
+  font-family: "Ariel";
+  font-weight: 600;
+  font-size: 18px;
+  margin-left: 10px;
+  width: 250px;
+  color: black;
+}
+#header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0;
+  color: black;
+}
+#display {
+  font-family: "Lucida Sans Unicode", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  margin-left: 10px;
+  margin-right: 0px;
+  width: 200px;
+  background-color: white;
+  border-radius: 8px;
+}
+#homebtn {
+  font-family: "Lucida Sans Unicode", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  margin-left: 10px;
+  color: rgb(245, 245, 158);
+  background-color: rgb(61, 39, 139);
+  border-radius: 8px;
+}
+#show-list {
+  border-radius: 8px;
+  font-family: "Lucida Sans Unicode", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  margin-left: 10px;
+  width: 250px;
+  color: black;
+}
+#site-search {
+  font-family: "Lucida Sans Unicode", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  margin-left: 10px;
+  width: 200px;
+  color: black;
+  border-radius: 8px;
+}
+.heading {
+  background-color: rgb(134, 41, 41);
 }
